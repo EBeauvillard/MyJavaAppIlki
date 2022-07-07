@@ -2,20 +2,16 @@ pipeline {
     agent any
 
     stages {
-        stage('Build') {
+        stage('Compile') {
             steps {
-                echo 'Building..'
+                sh echo 'Compiling..'
                 sh 'mvn clean install'
             }
         }
-        stage('Test') {
+        stage('Run') {
             steps {
-                echo 'Testing..'
-            }
-        }
-        stage('Deploy') {
-            steps {
-                echo 'Deploying....'
+                echo 'Running..'
+                sh 'mvn tomcat7:run'
             }
         }
     }
