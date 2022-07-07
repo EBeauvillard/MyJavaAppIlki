@@ -4,7 +4,7 @@ pipeline {
     stages {
         stage('Compile') {
             steps {
-                sh echo 'Compiling..'
+                echo 'Compiling..'
             }
         }
         stage('Run') {
