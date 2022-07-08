@@ -11,5 +11,4 @@ RUN update-ca-certificates --fresh
 RUN mvn --version
 RUN java -version
 RUN ls
-RUN mvn clean install
 COPY ./target/hello.war /usr/local/tomcat/webapps/
