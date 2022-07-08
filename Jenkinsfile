@@ -8,9 +8,17 @@ pipeline {
                 sh 'mvn clean install'
             }
         }
-        stage('Run') {
+        stage('Tests') {
             steps {
-                echo 'Running..'
+                echo 'Testing..'
+            }
+        stage('Image') {
+            steps {
+                echo 'Creating image from Dockerfile'
+                sh 'ls'
+                sh 'mkdir docker && cd docker && mkdir agent_java && cd agent_java'
+                sh 'sudo docker build -t agent_java .'
+                sh 'sudo docker images'
             }
         }
     }
