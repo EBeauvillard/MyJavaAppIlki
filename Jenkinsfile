@@ -15,8 +15,8 @@ pipeline {
                 sh 'sudo mv apache-maven-3.5.4-bin.tar.gz /opt'
                 sh 'sudo tar -xvf /opt/apache-maven-3.5.4-bin.tar.gz -C /opt'
                 sh 'sudo mv /opt/apache-maven-3.5.4 /opt/apache-maven'
-                sh 'update-alternatives --install /usr/bin/mvn maven /opt/apache-maven/bin/mvn 1001'
-                sh 'update-ca-certificates --fresh'
+                sh 'sudo update-alternatives --install /usr/bin/mvn maven /opt/apache-maven/bin/mvn 1001'
+                sh 'sudo update-ca-certificates --fresh'
                 sh 'mvn --version'
                 sh 'java -version'
             }
