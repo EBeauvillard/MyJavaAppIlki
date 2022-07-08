@@ -2,6 +2,8 @@ pipeline {
     agent any
     stages {
         stage('Dependencies') {
+            steps {
+                echo 'Installing dependencies..'
                 sh 'apt-get update'
                 sh "echo '* libraries/restart-without-asking boolean true' | debconf-set-selections"
                 sh 'apt-get install -y openjdk-8-jdk git curl wget'
@@ -13,6 +15,7 @@ pipeline {
                 sh 'update-ca-certificates --fresh'
                 sh 'mvn --version'
                 sh 'java -version'
+            }
         }
         stage('Compile') {
             steps {
@@ -27,7 +30,7 @@ pipeline {
         }
         stage('Image') {
             steps {
-                echo 'Creating image from Dockerfile'
+                echo 'Creating image from Dockerfile..'
                 sh 'ls'
                 sh 'sudo docker build -t agent_java .'
                 sh 'sudo docker images' 
