@@ -6,7 +6,11 @@ pipeline {
                 echo 'Installing dependencies..'
                 sh 'sudo apt-get update'
                 sh "echo '* libraries/restart-without-asking boolean true' | sudo debconf-set-selections"
-                sh 'sudo apt-get install -y openjdk-8-jdk git curl wget'
+                sh 'sudo apt install apt-transport-https ca-certificates wget dirmngr gnupg software-properties-common'
+                sh 'wget -qO - https://adoptopenjdk.jfrog.io/adoptopenjdk/api/gpg/key/public | sudo apt-key add -'
+                sh 'sudo add-apt-repository --yes https://adoptopenjdk.jfrog.io/adoptopenjdk/deb/'
+                sh 'sudo apt-get update'
+                sh 'sudo apt install adoptopenjdk-8-hotspot'
                 sh 'wget http://mirrors.ircam.fr/pub/apache/maven/maven-3/3.5.4/binaries/apache-maven-3.5.4-bin.tar.gz'
                 sh 'mv apache-maven-3.5.4-bin.tar.gz /opt'
                 sh 'tar -xvf /opt/apache-maven-3.5.4-bin.tar.gz -C /opt'
