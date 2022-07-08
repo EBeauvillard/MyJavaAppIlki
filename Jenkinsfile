@@ -1,10 +1,5 @@
 pipeline {
-    agent {
-            docker {
-                image 'evarga/jenkins-slave'
-                args '-u root:root'
-            }
-        }
+    agent any
     stages {
         stage('Compile') {
             steps {
