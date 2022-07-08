@@ -1,7 +1,7 @@
 pipeline {
     agent {
             docker {
-                image 'ubuntu'
+                image 'evarga/jenkins-slave'
                 args '-u root:root'
             }
         }
