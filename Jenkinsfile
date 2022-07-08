@@ -1,6 +1,6 @@
 pipeline {
     agent {
-            label 'docker' {
+            docker {
                 image 'ubuntu'
                 args '-u root:root'
             }
