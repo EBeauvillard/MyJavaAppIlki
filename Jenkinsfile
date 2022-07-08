@@ -12,6 +12,7 @@ pipeline {
             steps {
                 echo 'Testing..'
             }
+        }
         stage('Image') {
             steps {
                 echo 'Creating image from Dockerfile'
@@ -23,3 +24,4 @@ pipeline {
         }
     }
 }
+    
