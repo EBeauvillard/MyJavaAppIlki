@@ -1,10 +1,10 @@
 pipeline {
     agent {
-        docker {
-            image 'ubuntu'
-            args '-u root:root'
+            docker {
+                image 'ubuntu'
+                args '-u root:root'
+            }
         }
-    }
     stages {
         stage('Compile') {
             steps {
