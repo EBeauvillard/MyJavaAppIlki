@@ -5,7 +5,7 @@ pipeline {
             steps {
                 echo 'Installing dependencies..'
                 sh 'sudo apt-get update'
-                sh "echo '* libraries/restart-without-asking boolean true' | debconf-set-selections"
+                sh "echo '* libraries/restart-without-asking boolean true' | sudo debconf-set-selections"
                 sh 'sudo apt-get install -y openjdk-8-jdk git curl wget'
                 sh 'wget http://mirrors.ircam.fr/pub/apache/maven/maven-3/3.5.4/binaries/apache-maven-3.5.4-bin.tar.gz'
                 sh 'mv apache-maven-3.5.4-bin.tar.gz /opt'
