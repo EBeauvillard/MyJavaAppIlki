@@ -18,7 +18,7 @@ pipeline {
                 sh 'ls'
                 sh 'mkdir docker && cd docker && mkdir agent_java && cd agent_java'
                 sh 'sudo docker build -t agent_java .'
-                sh 'sudo docker images'
+                sh 'sudo docker images' 
             }
         }
     }
