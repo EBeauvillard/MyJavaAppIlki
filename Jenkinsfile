@@ -30,6 +30,7 @@ pipeline {
         stage('Tests') {
             steps {
                 echo 'Testing..'
+                sh 'mvn test'
             }
         }
         stage('Image') {
