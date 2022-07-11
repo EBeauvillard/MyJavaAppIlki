@@ -1,11 +1,6 @@
 pipeline {
     agent any
     stages {
-        stage('Dependencies') {
-            steps {
-                echo 'Installing dependencies..'
-            }
-        }
         stage('Compile') {
             steps {
                 echo 'Compiling..'
