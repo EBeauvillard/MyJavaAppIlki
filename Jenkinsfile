@@ -4,7 +4,6 @@ pipeline {
         stage('Dependencies') {
             steps {
                 echo 'Installing dependencies..'
-                sh 'sh Dependencies.sh'
             }
         }
         stage('Compile') {
