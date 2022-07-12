@@ -39,6 +39,6 @@ pipeline {
 		sh 'sudo docker run -d ebeauvillard/ilki-training:latest'
 		sh 'sudo docker ps -a'
 	    }
+	}
     }
 }
-    
