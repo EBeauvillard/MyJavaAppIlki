@@ -1,4 +1,4 @@
-FROM tomcat
+FROM mcneilco/tomcat-maven
 RUN mvn --version
 RUN java -version
 RUN ls
