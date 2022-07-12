@@ -17,7 +17,7 @@ pipeline {
             steps {
                 echo 'Creating image from Dockerfile..'
                 sh 'ls'
-                sh 'sudo docker build -t ebeauvillard/ilki-training: .'
+                sh 'sudo docker build -t ebeauvillard/ilki-training .'
                 sh 'sudo docker images'
                 sh 'sudo docker push ebeauvillard/ilki-training'
                 sh 'sudo docker ps -a'
