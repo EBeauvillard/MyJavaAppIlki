@@ -18,7 +18,9 @@ pipeline {
                 echo 'Creating image from Dockerfile..'
                 sh 'ls'
                 sh 'sudo docker build -t agent_java .'
-                sh 'sudo docker images' 
+                sh 'sudo docker images'
+                sh 'sudo docker run agent_java'
+                sh 'sudo docker ps -a'
             }
         }
     }
