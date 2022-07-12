@@ -36,7 +36,7 @@ pipeline {
 	}
 	stage('Running container') {
 	    steps {
-		sh 'sudo docker run -d ebeauvillard/ilki-training:latest'
+		sh 'sudo docker run -i --rm --name hello-app -p 8081:8080 -v ${PWD}/target/hello.war:/usr/local/tomcat/webapps/hello.war tomcat:9.0-jre8-alpine
 		sh 'sudo docker ps -a'
 	    }
 	}
