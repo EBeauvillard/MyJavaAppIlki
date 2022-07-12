@@ -2,7 +2,7 @@ pipeline {
     agent any
     environment {
 		DOCKERHUB_CREDENTIALS=credentials('dockerhub-ebeauvillard')
-	}
+    }
     stages {
         stage('Compile') {
             steps {
@@ -22,19 +22,23 @@ pipeline {
                 sh 'ls'
                 sh 'sudo docker build -t ebeauvillard/ilki-training .'
                 sh 'sudo docker images'
-                sh 'sudo docker ps -a'
             }
 	}
-  	stage('Logging in DockerHub') {
+	stage('Logging in Docker Hub') {
 	    steps {
 		sh 'echo $DOCKERHUB_CREDENTIALS_PSW | sudo docker login -u $DOCKERHUB_CREDENTIALS_USR --password-stdin'
 	    }
 	}
-        stage('Pushing image to Docker hub') {
+        stage('Pushing image to Docker Hub') {
 	    steps {
                 sh 'sudo docker push ebeauvillard/ilki-training:latest'
 	    }
 	}
+	stage('Running container') {
+	    steps {
+		sh 'sudo docker run -d ebeauvillard/ilki-training:latest'
+		sh 'sudo docker ps -a'
+	    }
     }
 }
     
