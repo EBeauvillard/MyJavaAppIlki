@@ -1,4 +1,4 @@
-FROM maven
+FROM tomcat
 RUN mvn --version
 RUN java -version
 RUN ls
