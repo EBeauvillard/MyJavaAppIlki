@@ -1,4 +1,4 @@
-FROM mcneilco/tomcat-maven
+FROM freedomkk/tomcat-maven
 RUN mvn --version
 RUN java -version
 RUN ls
