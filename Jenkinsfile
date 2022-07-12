@@ -19,7 +19,7 @@ pipeline {
                 sh 'ls'
                 sh 'sudo docker build -t agent_java .'
                 sh 'sudo docker images'
-                sh 'sudo docker run agent_java'
+                sh 'sudo docker push ebeauvillard/ilki-training:agent_java'
                 sh 'sudo docker ps -a'
             }
         }
