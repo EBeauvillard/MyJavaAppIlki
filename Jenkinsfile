@@ -24,17 +24,17 @@ pipeline {
                 sh 'sudo docker images'
                 sh 'sudo docker ps -a'
             }
-        }
-  		stage('Loging in DockerHub') {
-			steps {
-				sh 'echo $DOCKERHUB_CREDENTIALS_PSW | docker login -u $DOCKERHUB_CREDENTIALS_USR --password-stdin'
-			}
-		}
+	}
+  	stage('Loging in DockerHub') {
+	    steps {
+		sh 'echo $DOCKERHUB_CREDENTIALS_PSW | docker login -u $DOCKERHUB_CREDENTIALS_USR --password-stdin'
+	    }
+	}
         stage('Pushing image to Docker hub') {
-			steps {
+	    steps {
                 sh 'sudo docker push ebeauvillard/ilki-training:latest'
-			}
-		}
+	    }
+	}
     }
 }
     
